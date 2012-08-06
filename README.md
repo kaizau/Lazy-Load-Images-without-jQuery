@@ -29,3 +29,7 @@ Original code from [Mike Pulaski](http://www.mikepulaski.com/code/2012/06/29/laz
 
 .lazy-loaded { opacity: 1; }
 ```
+
+# Demo
+
+http://ezyz.github.com/Lazy-Load-Images-without-jQuery/
