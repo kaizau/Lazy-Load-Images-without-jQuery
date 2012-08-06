@@ -1,8 +1,8 @@
-/**
+/*!
  * Lazy Load Images without jQuery
- * An uncool, but totally searchable name for a totally useful plugin.
+ * http://ezyz.github.com/Lazy-Load-Images-without-jQuery/
  *
- * (c) 2012 Mike Pulaski. http://www.mikepulaski.com ~ Feel free to reuse. <3
+ * (c) 2012 Mike Pulaski. http://www.mikepulaski.com
  * Modified and maintained by Yifei Zhang. http://yifei.co
  */
 
