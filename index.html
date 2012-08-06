@@ -3,11 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Lazy load images without jQuery. by ezYZ</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>Lazy load images without jQuery. by ezYZ</title>
+    <meta name="description" content="A framework-free plugin for lazy loading images with JS.">
+
+    <link rel="stylesheet" href="gh-page/styles.css">
+    <link rel="stylesheet" href="gh-page/pygment_trac.css">
+
+    <style>
+      .lazy-load, .lazy-loaded {
+        -webkit-transition: opacity 0.3s;
+        -moz-transition: opacity 0.3s;
+        -ms-transition: opacity 0.3s;
+        -o-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+        opacity: 0;
+      }
+
+      .lazy-loaded { opacity: 1; }
+
+      .demo img { margin: 300px 0; }
+    </style>
+
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -22,8 +40,8 @@
 
 
         <ul>
-          <li><a href="https://github.com/ezYZ/Lazy-Load-Images-without-jQuery/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/ezYZ/Lazy-Load-Images-without-jQuery/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ezYZ/Lazy-Load-Images-without-jQuery/zipball/master">Download <strong>Expanded</strong></a></li>
+          <li><a href="https://github.com/ezYZ/Lazy-Load-Images-without-jQuery/tarball/master">Download <strong>Minified</strong></a></li>
           <li><a href="https://github.com/ezYZ/Lazy-Load-Images-without-jQuery">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
@@ -32,7 +50,7 @@
 
 <p>Lazy load your images without the overhead of a framework. Optionally, send mobile-optimized images to smaller screens. Tested on IE7+, Firefox, Chrome, iOS.</p>
 
-<h3>Basic Usage</h3>
+<h3>Usage</h3>
 
 <ol>
 <li><p>Include lazyload.min.js in your <code>&lt;head&gt;</code> or inline it.</p></li>
@@ -55,22 +73,32 @@
 <span class="nc">.lazy-loaded</span> <span class="p">{</span> <span class="k">opacity</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 
-<h3>Demo</h3>
+<div class="demo">
+  <h3>Demo</h3>
 
-<p><img src="demo/blank.gif"></p>
+  <img class="lazy-load" data-src="demo/1.jpg" data-src-mobile="demo/mobile/1.jpg" src="demo/blank.gif" />
+  <noscript><img src="demo/1.jpg" /></noscript>
 
-<img src="demo/1.jpg">
+  <img class="lazy-load" data-src="demo/2.jpg" data-src-mobile="demo/mobile/2.jpg" src="demo/blank.gif" />
+  <noscript><img src="demo/2.jpg" /></noscript>
 
-<p><img src="demo/blank.gif"></p>
+  <img class="lazy-load" data-src="demo/3.jpg" data-src-mobile="demo/mobile/3.jpg" src="demo/blank.gif" />
+  <noscript><img src="demo/3.jpg" /></noscript>
 
-<img src="demo/2.jpg">
+  <img class="lazy-load" data-src="demo/4.jpg" data-src-mobile="demo/mobile/4.jpg" src="demo/blank.gif" />
+  <noscript><img src="demo/4.jpg" /></noscript>
+
+  <img class="lazy-load" data-src="demo/5.jpg" data-src-mobile="demo/mobile/5.jpg" src="demo/blank.gif" />
+  <noscript><img src="demo/5.jpg" /></noscript>
+</div>
+
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/ezYZ">ezYZ</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+    <script src="gh-page/scale.fix.js"></script>
+
   </body>
 </html>
