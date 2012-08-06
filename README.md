@@ -6,16 +6,16 @@ Original code from [Mike Pulaski](http://www.mikepulaski.com/code/2012/06/29/laz
 
 # Usage
 
-1. Include `lazyload.min.js` in or inline it.
+1) Include `lazyload.min.js` or inline it.
 
-2. Add `.lazy-load` and `data-src` to each of your `<img>` tags. Optionally add `data-src-mobile`, a placeholder src, and a fallback image.
+2) Add `.lazy-load` and `data-src` to each of your `<img>` tags. Optionally add `data-src-mobile`, a placeholder src, and a fallback image.
 
 ```html
 <img class="lazy-load" data-src="lazy.jpg" data-src-mobile="lazy-small.jpg" src="blank.gif" />
 <noscript><img src="lazy.jpg" /></noscript>
 ```
 
-3. Add CSS3 for an animated fade-in:
+3) Add CSS3 for an animated fade-in:
 
 ```css
 .lazy-load, .lazy-loaded {
