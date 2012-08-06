@@ -29,12 +29,13 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
   </head>
   <body>
     <div class="wrapper">
       <header>
         <h1>Lazy load images without jQuery.</h1>
-        <p>Lazy load your images without the overhead of a library. IE7+, FF, Chrome.</p>
+        <p>Lazy load your images without the overhead of a framework. Optionally, send mobile-optimized images to smaller screens. Tested on IE7+, Firefox, Chrome, iOS.</p>
 
         <p class="view"><a href="https://github.com/ezYZ/Lazy-Load-Images-without-jQuery">View the Project on GitHub <small>ezYZ/Lazy-Load-Images-without-jQuery</small></a></p>
 
@@ -47,12 +48,10 @@
       <section>
         <p>Original code from <a href="http://www.mikepulaski.com/code/2012/06/29/lazy-load-images-without-external-libraries/">Mike Pulaski</a>.</p>
 
-<p>Lazy load your images without the overhead of a framework. Optionally, send mobile-optimized images to smaller screens. Tested on IE7+, Firefox, Chrome, iOS.</p>
-
 <h3>Usage</h3>
 
 <ol>
-  <li><p>Include <code>lazyload.min.js</code> in your <code>&lt;head&gt;</code> or inline it.</p></li>
+  <li><p>Include <code>lazyload.min.js</code> or inline it.</p></li>
   <li>
     <p>Add <code>.lazy-load</code> and <code>data-src</code> to each of your <code>&lt;img&gt;</code> tags. Optionally add <code>data-src-mobile</code>, a placeholder src, and a fallback image.</p>
     <div class="highlight"><pre><span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"lazy-load"</span> <span class="na">data-src=</span><span class="s">"lazy.jpg"</span> <span class="na">data-src-mobile=</span><span class="s">"lazy-small.jpg"</span> <span class="na">src=</span><span class="s">"blank.gif"</span> <span class="nt">/&gt;</span>
@@ -76,6 +75,8 @@
 
 <div class="demo">
   <h3>Demo</h3>
+  <p>Open up your Developer Tools / Firebug and peek at the network.</p>
+  <p>Images courtesy of <a href="http://grin.hq.nasa.gov/index.html">NASA</a>.
 
   <img class="lazy-load" data-src="demo/1.jpg" data-src-mobile="demo/mobile/1.jpg" src="demo/blank.gif" />
   <noscript><img src="demo/1.jpg" /></noscript>
@@ -95,10 +96,12 @@
 
       </section>
       <footer>
-        <p>This project is maintained by <a href="https://github.com/ezYZ">ezYZ</a></p>
+        <p>This project is maintained by <a href="http://yifei.co/">Yifei Zhang</a> <a href="https://github.com/ezYZ">(github)</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+
+    <script src="javascripts/lazyload.js"></script>
     <script src="gh-page/scale.fix.js"></script>
 
   </body>
