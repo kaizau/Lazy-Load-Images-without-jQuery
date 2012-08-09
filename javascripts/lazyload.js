@@ -42,6 +42,10 @@
         if ((imagePosition >= range.min - imageHeight) && (imagePosition <= range.max)) {
           var mobileSrc = image.getAttribute('data-src-mobile');
 
+          image.onload = function() {
+            this.className = 'lazy-loaded';
+          };
+
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {
             image.src = mobileSrc;
           }
@@ -51,7 +55,6 @@
 
           image.removeAttribute('data-src');
           image.removeAttribute('data-src-mobile');
-          image.className = 'lazy-loaded';
 
           lazyLoader.cache.splice(i, 1);
           continue;
