@@ -13,7 +13,7 @@
   var lazyLoader = {
     cache: [],
     mobileScreenSize: 500,
-    tinyGif: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+    //tinyGif: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
 
     addObservers: function() {
       addEventListener('scroll', lazyLoader.throttledLoad);
@@ -37,13 +37,15 @@
 
     loadVisibleImages: function() {
       var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      var pageHeight = window.innerHeight || Math.max(document.documentElement.clientHeight, document.body.clientHeight);
+      var pageHeight = window.innerHeight || document.documentElement.clientHeight;
       var range = {
         min: scrollY - 200,
         max: scrollY + pageHeight + 200
       };
 
-      console.log('loadVisibleImages fired');
+      //console.log('loadVisibleImages fired');
+      console.log('range.min: ' + range.min);
+      console.log('range.max: ' + range.max);
 
       var i = 0;
       while (i < lazyLoader.cache.length) {
@@ -54,12 +56,10 @@
         if ((imagePosition >= range.min - imageHeight) && (imagePosition <= range.max)) {
           var mobileSrc = image.getAttribute('data-src-mobile');
 
-          console.log('showing: ', image);
-
           image.onload = function() {
             this.className = 'lazy-loaded';
 
-            console.log('done loading: ', this);
+            console.log('done loading ' + image.src);
           };
 
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {
@@ -67,6 +67,7 @@
           }
           else {
             image.src = image.getAttribute('data-src');
+            console.log('loading ' + image.getAttribute('data-src'));
           }
 
           image.removeAttribute('data-src');
@@ -106,7 +107,7 @@
           var imageNode = imageNodes[i];
 
           // Add a placeholder if one doesn't exist
-          imageNode.src = imageNode.src || lazyLoader.tiny_gif;
+          //imageNode.src = imageNode.src || lazyLoader.tinyGif;
 
           lazyLoader.cache.push(imageNode);
         }
