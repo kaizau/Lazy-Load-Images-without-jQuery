@@ -43,10 +43,6 @@
         max: scrollY + pageHeight + 200
       };
 
-      //console.log('loadVisibleImages fired');
-      console.log('range.min: ' + range.min);
-      console.log('range.max: ' + range.max);
-
       var i = 0;
       while (i < lazyLoader.cache.length) {
         var image = lazyLoader.cache[i];
@@ -58,8 +54,6 @@
 
           image.onload = function() {
             this.className = 'lazy-loaded';
-
-            console.log('done loading ' + image.src);
           };
 
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {
@@ -67,7 +61,6 @@
           }
           else {
             image.src = image.getAttribute('data-src');
-            console.log('loading ' + image.getAttribute('data-src'));
           }
 
           image.removeAttribute('data-src');
