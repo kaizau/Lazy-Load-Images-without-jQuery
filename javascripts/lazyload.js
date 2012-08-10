@@ -16,22 +16,34 @@
     tinyGif: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
 
     addObservers: function() {
-      addEventListener('scroll', lazyLoader.loadVisibleImages);
-      addEventListener('resize', lazyLoader.loadVisibleImages);
+      addEventListener('scroll', lazyLoader.throttledLoad);
+      addEventListener('resize', lazyLoader.throttledLoad);
     },
 
     removeObservers: function() {
-      removeEventListener('scroll', lazyLoader.loadVisibleImages, false);
-      removeEventListener('resize', lazyLoader.loadVisibleImages, false);
+      removeEventListener('scroll', lazyLoader.throttledLoad, false);
+      removeEventListener('resize', lazyLoader.throttledLoad, false);
+    },
+
+    throttleTimer: new Date().getTime(),
+
+    throttledLoad: function() {
+      var now = new Date().getTime();
+      if ((now - lazyLoader.throttleTimer) >= 250) {
+        lazyLoader.throttleTimer = now;
+        lazyLoader.loadVisibleImages();
+      }
     },
 
     loadVisibleImages: function() {
       var scrollY = window.pageYOffset || document.documentElement.scrollTop;
       var pageHeight = window.innerHeight || Math.max(document.documentElement.clientHeight, document.body.clientHeight);
       var range = {
-        min: scrollY,
-        max: scrollY + pageHeight
+        min: scrollY - 200,
+        max: scrollY + pageHeight + 200
       };
+
+      console.log('loadVisibleImages fired');
 
       var i = 0;
       while (i < lazyLoader.cache.length) {
@@ -42,8 +54,12 @@
         if ((imagePosition >= range.min - imageHeight) && (imagePosition <= range.max)) {
           var mobileSrc = image.getAttribute('data-src-mobile');
 
+          console.log('showing: ', image);
+
           image.onload = function() {
             this.className = 'lazy-loaded';
+
+            console.log('done loading: ', this);
           };
 
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {
