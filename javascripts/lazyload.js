@@ -7,8 +7,8 @@
  */
 
 (function() {
-  var addEventListener =  window.addEventListener || function(n,f) { window.attachEvent('on'+n, f); };
-  var removeEventListener = window.removeEventListener || function(n,f,b) { window.detachEvent('on'+n, f); };
+  var addEventListener =  window.addEventListener || function(n,f) { window.attachEvent('on'+n, f); },
+      removeEventListener = window.removeEventListener || function(n,f,b) { window.detachEvent('on'+n, f); };
 
   var lazyLoader = {
     cache: [],
@@ -29,7 +29,7 @@
 
     throttledLoad: function() {
       var now = new Date().getTime();
-      if ((now - lazyLoader.throttleTimer) >= 250) {
+      if ((now - lazyLoader.throttleTimer) >= 200) {
         lazyLoader.throttleTimer = now;
         lazyLoader.loadVisibleImages();
       }
@@ -46,7 +46,7 @@
       var i = 0;
       while (i < lazyLoader.cache.length) {
         var image = lazyLoader.cache[i];
-        var imagePosition = image.offsetTop;
+        var imagePosition = getOffsetTop(image);
         var imageHeight = image.height || 0;
 
         if ((imagePosition >= range.min - imageHeight) && (imagePosition <= range.max)) {
@@ -110,6 +110,18 @@
 
         removeEventListener('load', _lazyLoaderInit, false);
       });
+    }
+  }
+
+  // For IE7 compatibility
+  // Adapted from http://www.quirksmode.org/js/findpos.html
+  function getOffsetTop(el) {
+    var val = 0;
+    if (el.offsetParent) {
+      do {
+        val += el.offsetTop;
+      } while (el = el.offsetParent);
+      return val;
     }
   }
 
