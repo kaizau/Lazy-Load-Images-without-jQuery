@@ -53,7 +53,10 @@
           var mobileSrc = image.getAttribute('data-src-mobile');
 
           image.onload = function() {
-            this.className = 'lazy-loaded';
+            // Preserve other classes of img tag and while replacing "lazy" with "lazy-loaded"
+            this.className = this.className.replace(/^lazy /, "lazy-loaded ")
+                                           .replace(/ lazy$/, " lazy-loaded")
+                                           .replace(/ lazy /g, " lazy-loaded ");
           };
 
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {
