@@ -2,10 +2,9 @@
  * Lazy Load Images without jQuery
  * http://ezyz.github.com/Lazy-Load-Images-without-jQuery/
  *
- * (c) 2012 Mike Pulaski. http://www.mikepulaski.com
- * Modified and maintained by Yifei Zhang. http://yifei.co
+ * Original by Mike Pulaski - http://www.mikepulaski.com
+ * Modified by Kai Zau - http://kaizau.com
  */
-
 (function() {
   var addEventListener =  window.addEventListener || function(n,f) { window.attachEvent('on'+n, f); },
       removeEventListener = window.removeEventListener || function(n,f,b) { window.detachEvent('on'+n, f); };
@@ -53,10 +52,10 @@
           var mobileSrc = image.getAttribute('data-src-mobile');
 
           image.onload = function() {
-            // Preserve other classes of img tag and while replacing "lazy" with "lazy-loaded"
-            this.className = this.className.replace(/^lazy /, "lazy-loaded ")
-                                           .replace(/ lazy$/, " lazy-loaded")
-                                           .replace(/ lazy /g, " lazy-loaded ");
+            this.className = this.className.replace(/^lazy-load /, "lazy-loaded ")
+                                           .replace(/ lazy-load$/, " lazy-loaded")
+                                           .replace(/^lazy-load$/, "lazy-loaded")
+                                           .replace(/ lazy-load /, " lazy-loaded ");
           };
 
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {

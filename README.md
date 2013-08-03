@@ -1,8 +1,8 @@
 # About
 
-Lazy load your images without the overhead of a framework. Optionally, send mobile-optimized images to smaller screens. Tested on IE7+, Firefox, Chrome, iOS.
+Lazy load your images without the overhead of a framework. Optionally, send mobile-optimized images to smaller screens. Tested on IE7+, Firefox, Chrome, Safari, iOS.
 
-Original code from [Mike Pulaski](http://www.mikepulaski.com/code/2012/06/29/lazy-load-images-without-external-libraries/).
+Based on code from [Mike Pulaski](http://www.mikepulaski.com/code/2012/06/29/lazy-load-images-without-external-libraries/).
 
 # Usage
 
@@ -15,7 +15,7 @@ Original code from [Mike Pulaski](http://www.mikepulaski.com/code/2012/06/29/laz
 <noscript><img src="lazy.jpg" /></noscript>
 ```
 
-3) Add CSS3 for an animated fade-in:
+3) Add CSS3 magic for an animated fade-in:
 
 ```css
 .lazy-load, .lazy-loaded {
