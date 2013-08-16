@@ -52,10 +52,7 @@
           var mobileSrc = image.getAttribute('data-src-mobile');
 
           image.onload = function() {
-            this.className = this.className.replace(/^lazy-load /, "lazy-loaded ")
-                                           .replace(/ lazy-load$/, " lazy-loaded")
-                                           .replace(/^lazy-load$/, "lazy-loaded")
-                                           .replace(/ lazy-load /, " lazy-loaded ");
+            this.className = this.className.replace(new RegExp('(^|\s+)lazy-load(\s+|$)'), '$1lazy-loaded$2');
           };
 
           if (mobileSrc && screen.width <= lazyLoader.mobileScreenSize) {
