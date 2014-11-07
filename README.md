@@ -32,4 +32,4 @@ Based on code from [Mike Pulaski](http://www.mikepulaski.com/code/2012/06/29/laz
 
 # Demo
 
-http://ezyz.github.com/Lazy-Load-Images-without-jQuery/
+http://kaizau.github.com/Lazy-Load-Images-without-jQuery/
