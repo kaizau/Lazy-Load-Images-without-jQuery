@@ -1,6 +1,6 @@
 /*!
  * Lazy Load Images without jQuery
- * http://ezyz.github.com/Lazy-Load-Images-without-jQuery/
+ * http://kaizau.github.com/Lazy-Load-Images-without-jQuery/
  *
  * Original by Mike Pulaski - http://www.mikepulaski.com
  * Modified by Kai Zau - http://kaizau.com
